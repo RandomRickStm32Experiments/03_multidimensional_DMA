@@ -1,5 +1,5 @@
 # multidimensional_DMA
-Follow on from [stm32f0_ADC_DMA_multichannel](https://github.com/RandomRickStm32Experiments/stm32f0_ADC_DMA_multichannel).
+Follow on from [02_stm32f0_ADC_DMA_multichannel](https://github.com/RandomRickStm32Experiments/02_stm32f0_ADC_DMA_multichannel).
 
 That code works, but I don't like the overhead of all the DMA interrupts
 happening all the time.  Better to sample a bunch of times and then just process at the end, producing many fewer DMA ints.
