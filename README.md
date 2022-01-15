@@ -1,5 +1,7 @@
 # multidimensional_DMA
-follow on from stm32f0_ADC_DMA_multichannel_continuous_sampling.  That code works, but I don't like the overhead of all the DMA interrupts
+Follow on from [stm32f0_ADC_DMA_multichannel](https://github.com/RandomRickStm32Experiments/stm32f0_ADC_DMA_multichannel).
+
+That code works, but I don't like the overhead of all the DMA interrupts
 happening all the time.  Better to sample a bunch of times and then just process at the end, producing many fewer DMA ints.
 
 Now,in this project we will  sample not just 3 DMA channels, but repeatedly, creating a 2D array
