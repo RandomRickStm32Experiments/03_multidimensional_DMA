@@ -1,0 +1,11 @@
+60027_STM32F030K6T6/
+Release/
+Debug/
+Doc/
+*.bin
+*.elf
+*.map
+~*
+nohup.out
+.~*
+.metadata/
