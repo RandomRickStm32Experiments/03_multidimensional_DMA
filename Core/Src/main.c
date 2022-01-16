@@ -51,7 +51,9 @@ ADC_HandleTypeDef hadc;
 DMA_HandleTypeDef hdma_adc;
 
 /* USER CODE BEGIN PV */
+#ifdef DEBUG
 uint16_t		AADebugShad[NUM_CHANNELS];
+#endif
 uint16_t		DmaBuffer[NUM_CHANNELS * DMA_ARRAY_LEN];
 unsigned char	ConversionComplete = 0;
 
@@ -78,9 +80,11 @@ void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef *hadc)
 {
 	/* Prevent unused argument(s) compilation warning */
 	UNUSED(hadc);
+#ifdef DEBUG
 	AADebugShad[0] = DmaBuffer[30];
 	AADebugShad[1] = DmaBuffer[31];
 	AADebugShad[2] = DmaBuffer[32];
+#endif
 
 //	HAL_ADC_Stop_DMA(hadc); //! debug
 	HAL_GPIO_WritePin(DebugPin_GPIO_Port, DebugPin_Pin, GPIO_PIN_RESET);
@@ -233,7 +237,7 @@ static void MX_ADC_Init(void)
   */
   sConfig.Channel = ADC_CHANNEL_7;
   sConfig.Rank = ADC_RANK_CHANNEL_NUMBER;
-  sConfig.SamplingTime = ADC_SAMPLETIME_71CYCLES_5;
+  sConfig.SamplingTime = ADC_SAMPLETIME_41CYCLES_5;
   if (HAL_ADC_ConfigChannel(&hadc, &sConfig) != HAL_OK)
   {
     Error_Handler();
